@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Day1</title>
+</head>
+
+<body>
+    <style>
+        html {
+            font-family: sans-serif;
+            background: #4054FF;
+        }
+
+        .inbox {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #F1F1F1;
+        }
+
+        input[type="checkbox"] {
+            margin: 20px;
+        }
+
+        p {
+            margin: 0;
+            padding: 20px;
+            flex: 1;
+            font-family: 'helvetica neue';
+            font-size: 20px;
+            font-weight: 200;
+            border-left: 1px solid #D1E2FF;
+        }
+
+        .item:last-child {
+            border-bottom: 0;
+        }
+
+        input:checked+p {
+            background: #F9F9F9;
+            text-decoration: line-through;
+        }
+    </style>
+    <div class="inbox">
+        <div class="item">
+            <input type="checkbox">
+            <p>Welcome to Day1</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Have fun learning JS!</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Follow us on Instagram @iecsemanipal</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Checkout our website www.iecsemanipal.com</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>Example item</p>
+        </div>
+    </div>
+    <script>
+        let lastChecked;
+        const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+        function handleCheck(e) {
+            let userchecksFlag = false;
+            let userunchecksFlag = true;
+            if (e.shiftKey && this.checked) {
+                //let's start looping here
+                checkboxes.forEach(checkbox => {
+                    //let's check if the current 'checkbox' is
+                    //one of the references
+
+                    if (checkbox === this || checkbox === lastChecked) {
+                        //now we need to set the checkboxStatus to true
+                        userchecksFlag = !userchecksFlag;
+                        if (userchecksFlag) {
+                            console.log("Start to check the elements in the middle!")
+                            console.log(checkbox)
+
+                        } else {
+                            console.log(checkbox)
+                            console.log("End here!")
+                        }
+
+                    } else {
+                        console.log(checkbox)
+                    }
+
+                    //after we cross our first reference the checkboxStatus is set to true
+                    //we can start 'checking' the boxes that follow the encountered reference
+                    if (userchecksFlag) {
+                        checkbox.checked = true; //if the status is true, we'll 'check' the checkbox
+                    }
+                })
+            }
+            //similar steps for unchecking
+            if (e.shiftKey && !this.checked) {
+                checkboxes.forEach(checkbox => {
+                    if (checkbox === this || checkbox === lastChecked) {
+                        userunchecksFlag = !userunchecksFlag;
+                    }
+                    if (!userunchecksFlag) {
+                        checkbox.checked = false;
+                    }
+                })
+                lastChecked.checked = false;
+            }
+            lastChecked = this;
+        }
+
+        checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+    </script>
+</body>
+
+</html>
