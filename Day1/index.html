@@ -76,8 +76,8 @@
         const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
 
         function handleCheck(e) {
-            let userchecksFlag = false;
-            let userunchecksFlag = true;
+            let userChecksFlag = false;
+            let userUnchecksFlag = true;
             if (e.shiftKey && this.checked) {
                 //let's start looping here
                 checkboxes.forEach(checkbox => {
@@ -86,8 +86,8 @@
 
                     if (checkbox === this || checkbox === lastChecked) {
                         //now we need to set the checkboxStatus to true
-                        userchecksFlag = !userchecksFlag;
-                        if (userchecksFlag) {
+                        userChecksFlag = !userChecksFlag;
+                        if (userChecksFlag) {
                             console.log("Start to check the elements in the middle!")
                             console.log(checkbox)
 
@@ -102,7 +102,7 @@
 
                     //after we cross our first reference the checkboxStatus is set to true
                     //we can start 'checking' the boxes that follow the encountered reference
-                    if (userchecksFlag) {
+                    if (userChecksFlag) {
                         checkbox.checked = true; //if the status is true, we'll 'check' the checkbox
                     }
                 })
@@ -111,9 +111,9 @@
             if (e.shiftKey && !this.checked) {
                 checkboxes.forEach(checkbox => {
                     if (checkbox === this || checkbox === lastChecked) {
-                        userunchecksFlag = !userunchecksFlag;
+                        userUnchecksFlag = !userUnchecksFlag;
                     }
-                    if (!userunchecksFlag) {
+                    if (!userUnchecksFlag) {
                         checkbox.checked = false;
                     }
                 })
