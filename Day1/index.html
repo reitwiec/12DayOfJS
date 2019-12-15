@@ -68,7 +68,7 @@
         </div>
         <div class="item">
             <input type="checkbox">
-            <p>Example item</p>
+            <p>Hope you have fun!</p>
         </div>
     </div>
     <script>
@@ -77,7 +77,7 @@
 
         function handleCheck(e) {
             let userChecksFlag = false;
-            let userUnchecksFlag = true;
+            let userUnchecksFlag = false;
             if (e.shiftKey && this.checked) {
                 //let's start looping here
                 checkboxes.forEach(checkbox => {
@@ -113,7 +113,7 @@
                     if (checkbox === this || checkbox === lastChecked) {
                         userUnchecksFlag = !userUnchecksFlag;
                     }
-                    if (!userUnchecksFlag) {
+                    if (userUnchecksFlag) {
                         checkbox.checked = false;
                     }
                 })
