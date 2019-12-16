@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Custom Video Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="player">
+        <video class="player__video viewer">
+            <source src="http://files.simey.me/html5-vids/trailer.webm" type="video/webm">
+            <source src="http://files.simey.me/html5-vids/trailer.ogv" type="video/ogg">
+        </video>
+
+        <div class="player__controls">
+            <div class="progress">
+                <div class="progress__filled"></div>
+            </div>
+            <button class="player__button toggle play" title="Toggle Play">&#9654;</button>
+            <input type="range" name="volume" class="player__slider" min="0" max="1" step="0.05" value="1">
+            <input type="range" name="playbackRate" class="player__slider" min="0.5" max="2" step="0.1" value="1">
+            <button data-skip="-6" class="player__button">&#171; 6s</button>
+            <button data-skip="9" class="player__button">9s &#187;</button>
+            <button data-fullscreen class="player__button" title="Full screen">🖵</button>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
