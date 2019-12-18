@@ -1,0 +1,93 @@
+:root {
+    --background: #fafafa;
+    --navbarBackground: #eeeeee;
+    --buttonBackground: #1d1d1d;
+    --buttonText: #eeeeee;
+    --content: #000;
+    --inboxBackground: #fff;
+    --inboxCrossed: #F9F9F9;
+    --logoUrl: url(https://miro.medium.com/max/968/1*F6SrJR7_s95r6oCF3ugMZw.png);
+}
+
+html {
+    font-family: sans-serif;
+    background: var(--background);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+    overflow: hidden;
+    height: 70px;
+    background: var(--navbarBackground);
+}
+
+
+.topnav-right {
+    float: right;
+}
+
+.switch-btn {
+    font-family: 'helvetica neue';
+    letter-spacing: 1px;
+    border-radius: 0;
+    padding: 10px;
+    margin: 20px;
+    border: none;
+    color: var(--buttonText);
+    background: var(--buttonBackground);
+}
+
+.switch-btn:hover {
+    cursor: pointer;
+}
+
+.logo {
+    content: var(--logoUrl);
+    margin: 10px 0px 0px 20px;
+    width: 120px;
+}
+
+/* Checkbox challenge code */
+.inbox {
+    max-width: 400px;
+    margin: 50px auto;
+    background: var(--inboxBackground);
+    border-radius: 5px;
+    filter: drop-shadow(0 0mm 1mm rgba(0, 0, 0, 0.15));
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #F1F1F1;
+}
+
+input[type="checkbox"] {
+    margin: 20px;
+}
+
+p {
+    margin: 0;
+    padding: 20px;
+    flex: 1;
+    font-family: 'helvetica neue';
+    font-size: 20px;
+    font-weight: 200;
+    border-left: 1px solid var(--background);
+    color: var(--content);
+}
+
+.item:last-child {
+    border-bottom: 0;
+}
+
+input:checked+p {
+    background: var(--inboxCrossed);
+    text-decoration: line-through;
+}
+
+/* -------------------------------- */
